@@ -1,0 +1,23 @@
+{
+  "name": "iroh-bot",
+  "version": "1.0.0",
+  "description": "Unlce Iroh twitter bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scbenet/iroh-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scbenet/iroh-bot/issues"
+  },
+  "homepage": "https://github.com/scbenet/iroh-bot#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
