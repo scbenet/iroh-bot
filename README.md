@@ -7,6 +7,7 @@ This is a automated bot running on Twitter that responds to requests for knowled
 everybody's favorite tea enthusiast.
 
 Developed using react-js and the twit library
+Running from AWS EC2 instance 
 
 Copyright (c) 2020 Sam Benet
 
