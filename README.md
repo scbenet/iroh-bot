@@ -1,5 +1,5 @@
 # iroh-bot
-Unlce Iroh Twitter bot
+Uncle Iroh Twitter bot
 
 This is a automated bot running on Twitter that responds to requests for knowledge with a quote from Uncle Iroh,
 everybody's favorite tea enthusiast.
