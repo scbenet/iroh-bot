@@ -41,9 +41,10 @@ function tweet(){
     const fs = require('fs');
     var stream = fs.createWriteStream("resources/tweetIds.txt", {flags:'a'});
 
-    
+    //String variable to store list of already responded to tweets 
     var idList = ""
 
+    //Populate idList from tweetIds.txt file
     const ids = fs.readFile('resources/tweetIds.txt', 'utf-8', (err, data)=> {
         if(data)
             idList = data.toString()
@@ -57,24 +58,27 @@ function tweet(){
 
         if(!err){
             for(let dat of tweets){
-                if (idList.includes(dat.id_str)){
+                //Skip tweet if it is a retweet or has already been responded to
+                if (dat.hasOwnProperty("retweeted_status") || idList.includes(dat.id_str)){
                     continue;
                 }
                     
+                //Pick random quote from array
                 let replyNum = Math.floor((Math.random() * NUM_QUOTES));
                 let reply = QUOTES[replyNum]
                 
+                //Tweet message
                 let tweetId = dat.id_str
                 let name = '@' + dat.user.screen_name 
                 T.post('statuses/update', {in_reply_to_status_id: tweetId, status: name + ' ' + reply}, function(err, data, response){
                     if(response)
-                        //console.log(reply)
+                        console.log(reply)
                     if(err)
                         console.log(err.message)
                 })
+                //Write tweetId to file so bot knows not to respond again
                 let data = tweetId + '\n'
                 stream.write(data)
-                    
                    
             }
         }
@@ -82,3 +86,5 @@ function tweet(){
 setTimeout(tweet, 15000);
 }
 setTimeout(tweet, 10)
+
+//setTimeouts ensure it runs until stopped
