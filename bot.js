@@ -64,8 +64,8 @@ function tweet(){
                 }
                     
                 //Pick random quote from array
-                //let replyNum = Math.floor((Math.random() * NUM_QUOTES));
-                let reply = QUOTES[29]
+                let replyNum = Math.floor((Math.random() * NUM_QUOTES));
+                let reply = QUOTES[replyNum]
                 
                 //Tweet message
                 let tweetId = dat.id_str
